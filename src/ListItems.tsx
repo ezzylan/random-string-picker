@@ -50,7 +50,7 @@ export default function ListItems({ item, inputText, inputs, setInputs, setIsLoa
       <Action
         title="Delete All Items"
         onAction={() => DeleteAllItems(setInputs)}
-        shortcut={{ modifiers: ["cmd"], key: "backspace" }}
+        shortcut={{ modifiers: ["cmd", "shift"], key: "backspace" }}
         icon={{ source: Icon.Trash, tintColor: Color.Red }}
       />
     </ActionPanel>

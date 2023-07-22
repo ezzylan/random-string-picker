@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "random-string-picker",
   "title": "Random String Picker",
-  "description": "Randomly selects and returns one of the user-entered input strings",
+  "description": "Pick a random item from a list by entering multiple string inputs, ala Wheel of Names",
   "icon": "random-picker-icon.png",
   "author": "ezzylan",
   "categories": [
