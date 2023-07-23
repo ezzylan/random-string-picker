@@ -13,43 +13,44 @@ type ListItemsProps = {
   inputText: string;
   inputs: string[];
   setInputs: React.Dispatch<React.SetStateAction<string[]>>;
+  isLoading: boolean;
   setIsLoading: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-export default function ListItems({ item, inputText, inputs, setInputs, setIsLoading }: ListItemsProps) {
+export default function ListItems({ item, inputText, inputs, setInputs, isLoading, setIsLoading }: ListItemsProps) {
   return (
     <ActionPanel>
       <Action
         title="Add Item to List"
-        onAction={() => AddItemToList(inputText, inputs, setInputs)}
+        onAction={() => !isLoading && AddItemToList(inputText, inputs, setInputs)}
         icon={{ source: Icon.Plus }}
       />
       <Action
         title="Randomize!"
-        onAction={() => RandomizeItems(inputs, setInputs, setIsLoading)}
+        onAction={() => !isLoading && RandomizeItems(inputs, setInputs, setIsLoading)}
         icon={{ source: Icon.Repeat }}
       />
       <Action
         title="Shuffle"
-        onAction={() => ShuffleItem(inputs, setInputs)}
+        onAction={() => !isLoading && ShuffleItem(inputs, setInputs)}
         shortcut={{ modifiers: ["cmd"], key: "s" }}
         icon={{ source: Icon.Shuffle }}
       />
       <Action
         title="Sort Alphebetically"
-        onAction={() => SortItemsAlphebetically(inputs, setInputs)}
-        shortcut={{ modifiers: ["cmd"], key: "f" }}
+        onAction={() => !isLoading && SortItemsAlphebetically(inputs, setInputs)}
+        shortcut={{ modifiers: ["cmd"], key: "d" }}
         icon={{ source: Icon.Uppercase }}
       />
       <Action
         title="Delete Item"
-        onAction={() => DeleteItem(item, inputs, setInputs)}
+        onAction={() => !isLoading && DeleteItem(item, inputs, setInputs)}
         shortcut={{ modifiers: ["cmd"], key: "backspace" }}
         icon={{ source: Icon.Trash, tintColor: Color.Red }}
       />
       <Action
         title="Delete All Items"
-        onAction={() => DeleteAllItems(setInputs)}
+        onAction={() => !isLoading && DeleteAllItems(setInputs)}
         shortcut={{ modifiers: ["cmd", "shift"], key: "backspace" }}
         icon={{ source: Icon.Trash, tintColor: Color.Red }}
       />

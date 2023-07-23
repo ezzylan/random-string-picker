@@ -34,6 +34,7 @@ export default function Command() {
               inputText={inputText}
               inputs={inputs}
               setInputs={setInputs}
+              isLoading={isLoading}
               setIsLoading={setIsLoading}
             />
           }
